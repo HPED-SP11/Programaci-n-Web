@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@page import="java.util.*, modelo.Usuario"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,34 +16,29 @@
     <body>
         <%
             try {
+                
+                String usr = request.getParameter("user");
+                String pass = request.getParameter("psswd");
 
-                String usuario1 = "Estudiante 1";
-                String passwrd1 = "Estudiante1";
-                String examen1;
+                List<Usuario> lista = new ArrayList<Usuario>();
+                lista.add (new Usuario("Estudiante 1", "Estudiante1"));
+                lista.add (new Usuario("Estudiante 2", "Estudiante2"));
+                lista.add (new Usuario("Estudiante 3", "Estudiante3"));
                 
-                String usuario2 = "Estudiante 2";
-                String passwrd2 = "Estudiante2";
-                String examen2;
-                
-                String usuario3 = "Estudiante 3";
-                String passwrd3 = "Estudiante3";
-                String examen3;
-                
-                usuario1 = request.getParameter("user");
-                passwrd1 = request.getParameter("psswd");
-                
-                usuario2 = request.getParameter("user");
-                passwrd2 = request.getParameter("psswd");
-                
-                usuario3 = request.getParameter("user");
-                passwrd3 = request.getParameter("psswd");
-                
-                if((request.getParameter("user").equals(usuario1 = "Estudiante 1") && request.getParameter("psswd").equals(passwrd1 = "Estudiante1")) || (request.getParameter("user").equals(usuario2 = "Estudiante 2") && request.getParameter("psswd").equals(passwrd2 = "Estudiante2")) || (request.getParameter("user").equals(usuario3 = "Estudiante 3") && request.getParameter("psswd").equals(passwrd3 = "Estudiante3"))) {
+                boolean registrado = false;
+                for(Usuario user : lista) {
+                    if(user.getUsername().equals(usr) && user.getPassword().equals(pass)) {
+                        registrado = true;
+                        session.setAttribute("usuarioRegistrado", usr);
+                        break;
+                    }
+                } 
+                if(registrado){
                     response.sendRedirect("Examen.jsp");
                 } else {
-                    out.println("<br><br>Ingresaste datos erroneos");
+                    out.println("<script>alert('Ingresaste datos erroneos'); window.location='LogIn.jsp';</script>");
                 }
-
+                
         } catch(Exception e) {
             out.println("<br><br>Ingresa tus credenciales de estudiante");
         }
