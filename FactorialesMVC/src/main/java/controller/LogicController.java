@@ -12,6 +12,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import model.CalculadoraLogica;
+import java.math.BigInteger;
+
 /**
  *
  * @author hpede
@@ -71,7 +74,34 @@ public class LogicController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String numStr = request.getParameter("numero");
+        
+        try{
+            int numero = Integer.parseInt(numStr);
+            
+            CalculadoraLogica logica = new CalculadoraLogica();
+            BigInteger resultado = logica.Factorial(numero);
+            
+            request.setAttribute("numOrig", numero);
+            request.setAttribute("resultadoFactorial", resultado);
+            
+            request.getRequestDispatcher("resultado.jsp").forward(request, response);
+        } catch(NumberFormatException e) {
+            response.setContentType("text/html;charset=UTF-8");
+            
+            try (PrintWriter out = response.getWriter()) {
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head><title>Error de depuración</title></head>");
+                out.println("<body>");
+                out.println("<h2>¡Ups! Ocurrió un NumberFormatException</h2>");
+                out.println("<p>El valor recibido en el Servlet fue: <strong>" + numStr + "</strong></p>");
+                out.println("<p>Detalle del error: " + e.getMessage() + "</p>");
+                out.println("<a href='index.jsp'>Volver</a>");
+                out.println("</body>");
+                out.println("</html>");
+            }
+        }
     }
 
     /**

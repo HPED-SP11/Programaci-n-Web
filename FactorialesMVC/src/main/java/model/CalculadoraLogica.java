@@ -4,12 +4,23 @@
  */
 package model;
 
+import java.math.BigInteger;
+
 /**
  *
  * @author hpede
  */
 public class CalculadoraLogica {
-    private int factor1;
-    private long factor2;
-    
+    public BigInteger Factorial(int n){
+        if(n<0){
+            throw new IllegalArgumentException("Por favor, ingresa un número positivo.");
+        }
+        BigInteger fact = BigInteger.ONE;
+        
+        for(int i = 2; i<=n;i++){
+            fact = fact.multiply(BigInteger.valueOf(i));
+        }
+        
+        return fact;
+    }
 }
