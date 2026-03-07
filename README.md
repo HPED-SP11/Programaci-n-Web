@@ -1,93 +1,73 @@
-# Programacion Web
+# Programacion Web - UdeG (CUTonalá)
+
+¡Holap! Bienvenido/a a mi repositorio para la clase de **Programación Web**. Soy **Edgar Pérez**, estudiante de Ingeniería en Ciencias Computacionales.
 
 
+En este repositorio documentaré todas las prácticas, proyectos y actividades realizadas durante el curso, enfocándome en el desarrollo de aplicaciones web dinámicas, utilizando tecnologías Java y el patrón de arquitectura **MVC (Modelo Vista Controlador)**.
 
-## Getting started
+---
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Stack Tecnológico
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Las tecnologías y herramientas principales utilizadas para este proyecto son:
 
-## Add your files
+* **Lenguajes:**
+	- [![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white)](#) Java
+	- [![HTML](https://img.shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white)](#) HTML
+	- [![CSS](https://img.shields.io/badge/CSS-639?logo=css&logoColor=fff)](#) CSS
 
-* [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+* **Backend & Servidores:**
+	- Java Servlets
+	- JSP (JavaServer Pages)
+	- Apache Tomcat 11
+
+* **Base de Datos:**
+	- [![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff)](#) MySQL (con MySQL Connector/J)
+
+* **Entorno de Desarrollo:**
+	- [![NetBeans IDE](https://img.shields.io/badge/NetBeans%20IDE-1B6AC6.svg?logo=apache-netbeans-ide&logoColor=white)](#) NetBeans IDE
+
+* **Arquitectura:**
+	- MVC (Modelo-Vista-Controlador)
+
+---
+
+## Progreso y Actividades Destacadas
+
+A continuación, un resumen de los avances y prácticas clave que he implementado:
+
+* **✅ Fundamentos Web:** Creación de páginas estáticas con HTML y proyectos iniciales (`Proyecto1.htm`).
+* **✅ Introducción a JSP:** Configuración del servidor **Apache Tomcat** y primeras prácticas con JSP para validaciones lógicas (ej. mayoría de edad).
+* **✅ Implementación de MVC:** Transición hacia una arquitectura limpia separando la lógica de negocio (clases Java) de la vista (JSP). Creación de pruebas iniciales (`Prueba.java`).
+* **✅ Simulador de Examen Dinámico:** Desarrollo de una práctica de "Examen" con 10 preguntas. Se implementó un módulo en Java y se optimizó la vista `Logic.jsp` para manejar el login de los usuarios de forma más eficiente.
+* **✅ Cálculo de Factoriales:** Ejercicio matemático integrando el patrón MVC completo y aplicando estilos CSS para mejorar la interfaz de usuario.
+* **✅ Conexión a Base de Datos (MySQL):** * Implementación de operaciones **INSERT** a una base de datos MySQL utilizando Servlets de Java.
+    * Integración del driver `MySQL Connector/J`.
+    * Desarrollo de un flujo completo: desde el formulario HTML (`input`), procesamiento en el Servlet, hasta la redirección a una vista `insert.jsp` que informa de manera amigable (con CSS) si la operación fue exitosa o arrojó un error.
+
+---
+
+## 📂 Estructura del Repositorio
+
+Para mantener el control y la limpieza del código, este repositorio está dividido estratégicamente en ramas:
+
+* **Rama `main`:** Actualmente aloja la documentación general (`README.md`). Al finalizar el curso, esta rama contendrá única y exclusivamente el código fuente del **Proyecto Final** de la materia.
+* **Rama `Actividades`:** Contiene el historial completo de las prácticas, tareas y ejercicios realizados en clase. 
+
+### Directorio de la rama `Actividades`
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/hped/programacion-web.git
-git branch -M main
-git push -uf origin main
+programacion-web/
+├── Examen-Web/           # Práctica: Simulador de examen dinámico integrando lógica en Java y vistas JSP.
+├── FactorialesMVC/       # Práctica: Cálculo matemático aplicando la arquitectura MVC y estilos CSS.
+├── ProyectoDB/           # Práctica: Implementación de conexión a MySQL (Operaciones INSERT) con Servlets.
+├── ProyectoTrianguloMVC/ # Práctica: Resolución geométrica estructurada bajo el patrón MVC.
+├── .gitignore            # Reglas de exclusión para mantener el repositorio limpio.
+└── (Archivos raíz)       # Prácticas iniciales estáticas (.htm), empaquetados (.zip) y herramientas del servidor (Apache Tomcat).
 ```
 
-## Integrate with your tools
+---
 
-* [Set up project integrations](https://gitlab.com/hped/programacion-web/-/settings/integrations)
+> *"Me apasiona codificar y mantenerme en aprendizaje continuo."*
 
-## Collaborate with your team
-
-* [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+[![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=fff)](#) [LinkedIn](https://www.linkedin.com/in/edgar-perez-hped) | [![GitLab](https://img.shields.io/badge/GitLab-FC6D26?logo=gitlab&logoColor=fff)](#) [GitLab](https://gitlab.com/hped) | [![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](#) [Escríbeme] (mailto:hped.edgarperez@gmail.com)
