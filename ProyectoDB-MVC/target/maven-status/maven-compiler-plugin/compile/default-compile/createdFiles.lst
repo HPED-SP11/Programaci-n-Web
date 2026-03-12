@@ -1,0 +1,5 @@
+com\mycompany\proyectodb\mvc\resources\JakartaEE11Resource.class
+Modelo\Conexion.class
+Controlador\InsertarAlumnoDAO.class
+Modelo\AlumnoDAO.class
+com\mycompany\proyectodb\mvc\JakartaRestConfiguration.class
