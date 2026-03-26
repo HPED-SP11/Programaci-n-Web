@@ -160,3 +160,13 @@ footer ul li a:hover {
   color: #e24329;
   transform: translateY(-3px);
 }
+
+/*Estilos de la tabla para select*/
+
+.tabla{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin-top: 3rem;
+}

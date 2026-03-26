@@ -85,21 +85,13 @@ public class SelectAlumnoDAO extends HttpServlet {
             AlumnoDAO dao = new AlumnoDAO();
             String mensajeFinal="";
 
-            try(PrintWriter out = response.getWriter()) {
-                
-                boolean sifunciono = dao.selectAlumno(codigo);
-                
-                if (sifunciono) {
-                    //mensajeFinal = 
-                        //out.print();
-                } else {
-                    mensajeFinal = "No se pudo hacer un select en la base de datos";
-                }
+            try {
+                mensajeFinal = dao.selectAlumno(codigo);
             } catch (SQLException ex) {
                 mensajeFinal = "Error de base de datos: " + ex.getMessage();
             }
             request.setAttribute("resultado", mensajeFinal);
-            request.getRequestDispatcher("respuesta.jsp").forward(request, response);
+            request.getRequestDispatcher("resultado_select.jsp").forward(request, response);
     }
 
     /**
