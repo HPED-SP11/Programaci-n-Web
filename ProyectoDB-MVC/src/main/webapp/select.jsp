@@ -1,6 +1,6 @@
 <%-- 
-    Document   : respuesta
-    Created on : Mar 9, 2026, 5:34:50 PM
+    Document   : select
+    Created on : 12 mar 2026, 11:00:17 a.m.
     Author     : hpede
 --%>
 
@@ -9,24 +9,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Resultado de la operación</title>
-        <link rel="stylesheet" href="styles.css" />
+        <title>SELECT - Bases de Datos con MVC</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <header>
             <div class="header-left"><p>&ltHPED&gt</p></div>
             <div class="header-center"><h2>MVC para INSERT en DB MySQL</h2></div>
-            <div class="header-right"><p>Marzo 9, 2026</p></div>
+            <div class="header-right"><p>Marzo 12, 2026</p></div>
         </header>
-        <div class="form" style="text-align: center; margin: 20px; padding: 20px;">
-            <h3>Resultado de la operación:</h3>
-            
-            <p style="font-size: 1.2em; font-weight: bold;">${resultado}</p>
-            
-            <br>
-            <a href="insertar.jsp" style="text-decoration: none; padding: 10px 20px; background-color: #e24329; color: white; border-radius: 5px;">
-                Volver al formulario
-            </a>
+        <div class="form">
+            <form action="SelectAlumnoDAO" method="POST">
+                <table border="0">
+                    <tr>
+                        <th>Código:</th>
+                        <td><input type="number" min="0" name="codigo" required></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Buscar"></td>
+                    </tr>
+                    <tr>
+                        <td><a href="index.jsp">Volver al menú.</a></td>
+                    </tr>
+                </table>
+            </form>
         </div>
         <footer>
             <ul>

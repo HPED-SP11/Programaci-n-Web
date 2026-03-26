@@ -1,6 +1,6 @@
 <%-- 
-    Document   : respuesta
-    Created on : Mar 9, 2026, 5:34:50 PM
+    Document   : index
+    Created on : Mar 9, 2026, 4:50:33 PM
     Author     : hpede
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Resultado de la operación</title>
+        <title>INSERT - Bases de Datos con MVC</title>
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
@@ -18,15 +18,30 @@
             <div class="header-center"><h2>MVC para INSERT en DB MySQL</h2></div>
             <div class="header-right"><p>Marzo 9, 2026</p></div>
         </header>
-        <div class="form" style="text-align: center; margin: 20px; padding: 20px;">
-            <h3>Resultado de la operación:</h3>
-            
-            <p style="font-size: 1.2em; font-weight: bold;">${resultado}</p>
-            
-            <br>
-            <a href="insertar.jsp" style="text-decoration: none; padding: 10px 20px; background-color: #e24329; color: white; border-radius: 5px;">
-                Volver al formulario
-            </a>
+        <div class="form">
+            <form action="InsertarAlumnoDAO" method="POST">
+                <table border="0">
+                    <tr>
+                        <th>Código:</th>
+                        <td><input type="number" min="0" name="codigo" required></td>
+                    </tr>
+                    <tr>
+                        <th>Nombre:</th>
+                        <td><input type="text" name="nombre" required></td>
+                    </tr>
+                    <tr>
+                        <th>Domicilio:</th>
+                        <td><input type="text" name="domicilio" required></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Registrar"></td>
+                    </tr>
+                    <tr>
+                        <td><a href="index.jsp">Volver al menú.</a></td>
+                    </tr>
+                </table>
+            </form>
         </div>
         <footer>
             <ul>

@@ -1,6 +1,6 @@
 <%-- 
     Document   : index
-    Created on : Mar 9, 2026, 4:50:33 PM
+    Created on : 12 mar 2026, 10:11:45 a.m.
     Author     : hpede
 --%>
 
@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Bases de Datos con MVC</title>
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <header>
@@ -18,27 +18,15 @@
             <div class="header-center"><h2>MVC para INSERT en DB MySQL</h2></div>
             <div class="header-right"><p>Marzo 9, 2026</p></div>
         </header>
-        <div class="form">
-            <form action="InsertarAlumnoDAO" method="POST">
-                <table border="0">
-                    <tr>
-                        <th>Código:</th>
-                        <td><input type="number" min="0" name="codigo" required></td>
-                    </tr>
-                    <tr>
-                        <th>Nombre:</th>
-                        <td><input type="text" name="nombre" required></td>
-                    </tr>
-                    <tr>
-                        <th>Domicilio:</th>
-                        <td><input type="text" name="domicilio" required></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><input type="submit" value="Registrar"></td>
-                    </tr>
-                </table>
-            </form>
+        <div class="content_menu">
+            <ul>
+                <li><h3>Por favor, selecciona qué operación CRUD deseas realizar.</h3></li>
+                <br><br>
+                <li class="menu_opt"><a href="insertar.jsp">Insert</a></li>
+                <li class="menu_opt"><a href="select.jsp">Select</a></li>
+                <li class="menu_opt"><a href="">Update</a></li>
+                <li class="menu_opt"><a href="">Delete</a></li>
+            </ul>
         </div>
         <footer>
             <ul>

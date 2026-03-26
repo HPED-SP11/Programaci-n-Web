@@ -24,7 +24,7 @@
             <p style="font-size: 1.2em; font-weight: bold;">${resultado}</p>
             
             <br>
-            <a href="index.jsp" style="text-decoration: none; padding: 10px 20px; background-color: #e24329; color: white; border-radius: 5px;">
+            <a href="insertar.jsp" style="text-decoration: none; padding: 10px 20px; background-color: #e24329; color: white; border-radius: 5px;">
                 Volver al formulario
             </a>
         </div>

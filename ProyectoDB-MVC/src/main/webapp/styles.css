@@ -44,6 +44,40 @@ header h2 {
     font-weight: 900;
     font-size: 1.8rem;
 }
+/*ESTILOS ESPECÍFICOS PARA INDEX.JSP*/
+.content_menu{
+    margin-top: 3rem;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #9ca3af;
+    text-align: center;
+    width: 100%;
+}
+.content_menu ul li {
+    list-style: none;
+}
+.menu_opt {
+    margin: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.menu_opt a {
+    text-decoration: none; 
+    padding: 10px 30px; 
+    background-color: #FF2200; 
+    color: white; 
+    border-radius: 5px;
+
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+}
+.menu_opt a:hover{
+    background-color: #C91A00;
+}
 .form {
     display: flex;
     justify-content: center;
@@ -85,7 +119,8 @@ input[type="submit"] {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-style: normal;
-    margin: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 input[type="submit"]:hover {
     background-color: #c95135;
@@ -93,6 +128,13 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 .txt {width: 20rem;} .num{width: 7rem;}
+.form a {
+    text-decoration: none;
+    color: #fff;
+} .form a:hover {
+    text-decoration: underline;
+    color: #e24329;
+}
 footer {
   margin-top: auto;
   padding: 0;

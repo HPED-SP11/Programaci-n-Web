@@ -25,4 +25,18 @@ public class AlumnoDAO {
                 return pstmt.executeUpdate() > 0;
         }
     }
+    public boolean selectAlumno(int codigo) throws SQLException {
+        String sql = "select * from alumnos where codigo = ?";
+        
+        String mensajeFinal="";
+        
+        try(Connection con = Conexion.getConnection();
+                PreparedStatement pstmt = con.prepareStatement(sql)) {
+            pstmt.setInt(1,codigo);
+            
+            try(ResultSet rs = pstmt.executeQuery()){
+                return rs.next();
+            }
+        }
+    }
 }
