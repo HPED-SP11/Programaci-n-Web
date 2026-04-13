@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => { //PARA LAS ALERTAS DEL INDEX
+/*document.addEventListener('DOMContentLoaded', () => { //PARA LAS ALERTAS DEL INDEX
 
     document.getElementById("update_opt").addEventListener('click', (e) => { // para el UPDATE
         e.preventDefault(); // Evita que el enlace intente navegar
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => { //PARA LAS ALERTAS DEL IND
             text: "Aún no adjunto esta función",
         });
     });
-});
+});*/
 
 document.addEventListener('DOMContentLoaded', () => { // ALERTA PARA 'VOLVER AL MENU' EN CUALQUIER FORMULARIO
     const btnReturn = document.getElementById('backMenu');
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => { // ALERTA PARA REDIRECCIÓ
                 window.location.href = btnRedirect2.href;
             });
         });
-        /*btnRedirect3.addEventListener('click', (e) => {
+        btnRedirect3.addEventListener('click', (e) => {
             e.preventDefault();
             Swal.fire({
                 title: "Yendo hacia el update...",
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => { // ALERTA PARA REDIRECCIÓ
             }).then(() => {
                 window.location.href = btnRedirect4.href;
             });
-        });*/
+        });
     }
 });
 
