@@ -22,10 +22,10 @@
             <ul>
                 <li><h3>Por favor, selecciona qué operación CRUD deseas realizar.</h3></li>
                 <br><br>
-                <li class="menu_opt"><a href="insertar.jsp">Insert</a></li>
-                <li class="menu_opt"><a href="select.jsp">Select</a></li>
-                <li class="menu_opt"><a href="">Update</a></li>
-                <li class="menu_opt"><a href="">Delete</a></li>
+                <li class="menu_opt"><a href="insertar.jsp" class="btn-volver">Insert</a></li>
+                <li class="menu_opt"><a href="select.jsp" class="btn-volver">Select<br>&<br>Delete</a></li>
+                <li class="menu_opt"><a href="update.jsp" class="btn-volver">Update</a></li>
+                <!--<li class="menu_opt"><a href="delete.jsp" class="btn-volver">Delete</a></li>-->
             </ul>
         </div>
         <footer>

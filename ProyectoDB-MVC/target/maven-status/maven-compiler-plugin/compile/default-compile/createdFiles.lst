@@ -1,6 +1,11 @@
+Controlador\ConsultarAlumnosServlet.class
 Controlador\InsertarAlumnoDAO.class
 com\mycompany\proyectodb\mvc\JakartaRestConfiguration.class
 Controlador\SelectAlumnoDAO.class
 com\mycompany\proyectodb\mvc\resources\JakartaEE11Resource.class
 Modelo\Conexion.class
+Modelo\Alumno.class
+Controlador\ConfirmarDatosAlumnoDAO.class
 Modelo\AlumnoDAO.class
+Controlador\EliminarAlumnoServlet.class
+Controlador\ModificarAlumnoDAO.class

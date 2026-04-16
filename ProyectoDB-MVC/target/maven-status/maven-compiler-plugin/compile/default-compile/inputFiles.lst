@@ -1,6 +1,11 @@
 D:\Programacion\programacion-web\ProyectoDB-MVC\src\main\java\com\mycompany\proyectodb\mvc\JakartaRestConfiguration.java
 D:\Programacion\programacion-web\ProyectoDB-MVC\src\main\java\com\mycompany\proyectodb\mvc\resources\JakartaEE11Resource.java
+D:\Programacion\programacion-web\ProyectoDB-MVC\src\main\java\Controlador\ConfirmarDatosAlumnoDAO.java
+D:\Programacion\programacion-web\ProyectoDB-MVC\src\main\java\Controlador\ConsultarAlumnosServlet.java
+D:\Programacion\programacion-web\ProyectoDB-MVC\src\main\java\Controlador\EliminarAlumnoServlet.java
 D:\Programacion\programacion-web\ProyectoDB-MVC\src\main\java\Controlador\InsertarAlumnoDAO.java
+D:\Programacion\programacion-web\ProyectoDB-MVC\src\main\java\Controlador\ModificarAlumnoDAO.java
 D:\Programacion\programacion-web\ProyectoDB-MVC\src\main\java\Controlador\SelectAlumnoDAO.java
+D:\Programacion\programacion-web\ProyectoDB-MVC\src\main\java\Modelo\Alumno.java
 D:\Programacion\programacion-web\ProyectoDB-MVC\src\main\java\Modelo\AlumnoDAO.java
 D:\Programacion\programacion-web\ProyectoDB-MVC\src\main\java\Modelo\Conexion.java

@@ -30,7 +30,8 @@
                         <td><input type="submit" value="Buscar"></td>
                     </tr>
                     <tr>
-                        <td><a href="index.jsp">Volver al menú.</a></td>
+                        <td><a href="index.jsp" class="btn-volver">Volver al menú</a></td>
+                        <td><a href="ConsultarAlumnosServlet" class="btn-registros">Ver todos los registros</a></td>
                     </tr>
                 </table>
             </form>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 12 mar 2026, 10:11:45 a.m.
+    Document   : delete
+    Created on : Apr 15, 2026, 8:25:52 PM
     Author     : hpede
 --%>
 
@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Bases de Datos con MVC</title>
+        <title>DELETE - Bases de Datos con MVC</title>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
@@ -18,15 +18,22 @@
             <div class="header-center"><h2>MVC para INSERT en DB MySQL</h2></div>
             <div class="header-right"><p>Marzo 9, 2026</p></div>
         </header>
-        <div class="content_menu">
-            <ul>
-                <li><h3>Por favor, selecciona qué operación CRUD deseas realizar.</h3></li>
-                <br><br>
-                <li class="menu_opt"><a href="insertar.jsp" class="btn-volver">Insert</a></li>
-                <li class="menu_opt"><a href="select.jsp" class="btn-volver">Select<br>&<br>Delete</a></li>
-                <li class="menu_opt"><a href="update.jsp" class="btn-volver">Update</a></li>
-                <!--<li class="menu_opt"><a href="delete.jsp" class="btn-volver">Delete</a></li>-->
-            </ul>
+        <div class="form">
+            <form action="EliminarAlumnoDAO" method="POST">
+                <table border="0">
+                    <tr>
+                        <th>Código:</th>
+                        <td><input type="number" min="0" name="codigo" required></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Buscar"></td>
+                    </tr>
+                    <tr>
+                        <td><a href="index.jsp" class="btn-volver">Volver al menú</a></td>
+                    </tr>
+                </table>
+            </form>
         </div>
         <footer>
             <ul>

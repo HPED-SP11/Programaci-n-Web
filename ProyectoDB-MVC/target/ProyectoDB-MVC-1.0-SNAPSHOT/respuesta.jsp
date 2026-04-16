@@ -18,13 +18,14 @@
             <div class="header-center"><h2>MVC para INSERT en DB MySQL</h2></div>
             <div class="header-right"><p>Marzo 9, 2026</p></div>
         </header>
-        <div class="form" style="text-align: center; margin: 20px; padding: 20px;">
-            <h3>Resultado de la operación:</h3>
-            
-            <p style="font-size: 1.2em; font-weight: bold;">${resultado}</p>
-            
+        <div class="form-insert"">
+            <div class="status-container">
+                <h3>Resultado de la operación:</h3>
+                <hr class="separator">
+                <p class="resultado-texto">${resultado}</p>
+            </div>
             <br>
-            <a href="insertar.jsp" style="text-decoration: none; padding: 10px 20px; background-color: #e24329; color: white; border-radius: 5px;">
+            <a href="insertar.jsp" class="btn-volver">
                 Volver al formulario
             </a>
         </div>
