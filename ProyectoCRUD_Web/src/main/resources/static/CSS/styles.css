@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/*DM Sans para títulos, Inter para textos normales*/
+
+:root {
+  --color-white: #fff;
+  --color-black: #000;
+  --color-hped: #f54927;
+  --color-background: #F0F8FF;
+  --color-footer: #D3D3D3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/*HEADER*/
+header {
+  background-color: var(--color-black);
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 16%;
+  box-sizing: border-box;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+.header-left p, .header-right p {
+  color: var(--color-hped);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin: 0;
+  line-height: 1;
+}
+.header-center h1 {
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+/*BODY*/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+.top-center {
+  margin: 0.5rem 0;
+  text-align: center;
+} .top-center p {
+  color: var(--color-black);
+  font-family: 'Poppins', sans-serif;
+} .info-top {
+  font-size: 1.4rem;
+} .info-top2 {
+  font-size: 1.3rem;
+}
+
+/*CONTENIDO DEL FORMULARIO*/
+.form-content {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form.logIn-form {
+  width: 100%;
+  padding: 2.5rem 2rem;
+  background: var(--color-black);
+  color: var(--color-white);
+  border-radius: 1rem;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+}
+.form-title h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+}
+.separator {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent, var(--color-hped), transparent);
+  margin: 10px 0 20px 0;
+}
+.usr-top, .usr-bot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1.2rem;
+  width: 100%;
+}
+.usr-top label, .usr-bot label {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  color: #ccc;
+}
+input[type="text"], input[type="password"] {
+  width: 100%;
+  border: 2px solid transparent;
+  padding: 0.8rem 1rem;
+  background-color: var(--color-white);
+  border-radius: 0.5rem;
+  color: var(--color-black);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+input[type="text"]:focus, input[type="password"]:focus {
+  border-color: var(--color-hped);
+  box-shadow: 0 0 8px rgba(245, 73, 39, 0.4);
+}
+.usr-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+input[type="submit"] {
+  border: none;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--color-white);
+  border-radius: 0.5rem;
+  color: var(--color-hped);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: transform 0.2s, background-color 0.2s, color 0.2s;
+}
+input[type="submit"]:hover {
+  background-color: var(--color-hped);
+  color: var(--color-white);
+  cursor: pointer;
+  transform: translateY(-8px);
+  box-shadow: 0 4px 10px rgba(245, 73, 39, 0.3);
+}
+
+/*FOOTER*/
+footer {
+  margin-top: auto;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-footer);
+  text-align: center;
+  width: 100%;
+}
+footer ul li a {
+  color: var(--color-footer);
+  font-size: 1.2rem;
+  margin: 0 8px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+footer ul li a:visited {
+  color: var(--color-footer);
+}
+
+footer ul li a:hover {
+  color: var(--color-hped);
+  transform: translateY(-3px);
+}

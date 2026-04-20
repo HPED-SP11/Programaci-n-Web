@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>DELETE - CRUD Básico en SpringBoot | Programación Web 2026A</title>
+  <link rel="stylesheet" th:href="@{/CSS/insert_styles.css}"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+  <header>
+    <div class="header-left"><p>&lt; HPED &gt;</p></div>
+    <div class="header-center"><h1>CRUD Básico en SpringBoot</h1></div>
+    <div class="header-right"><p>Programación Web 2026A</p></div>
+  </header>
+  <main class="container">
+    <div class="top-center">
+      <p class="info-top">
+        ¡Hola!
+      </p>
+      <p class="info-top2">
+        Por favor ingresa el código del alumno que precisas eliminar.
+      </p>
+    </div>
+    <div class="form-content">
+      <form th:action="@{/eliminarAlumno}" method="POST" class="crud-form">
+        <div class="right-btn">
+          <button type="button" class="btn-cerrar"><i class="bi bi-box-arrow-left"></i></button>
+        </div>
+        <div class="form-title">
+          <h2>Eliminar alumnos</h2>
+          <hr class="separator">
+        </div>
+        <div class="form-content">
+          <div class="usr-bot">
+            <label for="coUdeg">Codigo de estudiante:</label>
+            <input type="number" id="coUdeg" name="codigo" placeholder="123456789" required>
+          </div>
+          <div class="usr-btn">
+            <input type="submit" value="Eliminar" id="btnBorrar">
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <aside class="right-container">
+      <div class="content-aside">
+        <p class="info-top3">Se pueden realizar las siguientes operaciones del CRUD:</p>
+        <hr class="separator">
+        <ul class="crud-menu">
+          <li><a th:href="@{/insert}" class="btn-menu">INSERT</a></li>
+          <li><a th:href="@{/select}" class="btn-menu">SELECT</a></li>
+          <li><a th:href="@{/update}" class="btn-menu">UPDATE</a></li>
+          <li><a th:href="@{/delete}" class="btn-menu active">DELETE</a></li>
+        </ul>
+        <hr class="separator">
+        <p class="info-bot">Sientete libre de hacer lo que necesites.</p>
+      </div>
+    </aside>
+
+  </main>
+  <footer>
+    <ul>
+      <li>Hernández Pérez, Edgar Daniel - 221770108 - Universidad de Guadalajara</li>
+      <li>
+        <a href="https://github.com/HPED-SP11" target="_blank">
+          <i class="bi bi-github"></i>
+        </a>
+        <a href="https://gitlab.com/hped" target="_blank">
+          <i class="bi bi-gitlab"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/edgar-perez-hped" target="_blank">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="https://bsky.app/profile/hped.bsky.social" target="_blank">
+          <i class="bi bi-bluesky"></i>
+        </a>
+      </li>
+    </ul>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script th:src="@{/JS/crudScripts.js}"></script>
+</body>
+</html>
