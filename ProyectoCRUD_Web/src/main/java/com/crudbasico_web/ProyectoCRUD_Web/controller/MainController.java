@@ -5,9 +5,9 @@ import com.crudbasico_web.ProyectoCRUD_Web.model.AlumnosModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -38,15 +38,64 @@ public class MainController {
     }
 
     @GetMapping("/select")
-    public String mostrarSelect(){
+    public String mostrarSelect(Model model){
+        AlumnosModel alumno = new AlumnosModel();
+
+        model.addAttribute("alumno", alumno);
+        //model.addAttribute("alumno", alumnosService.getAlumnosByCodigo(codigo));
         return "public_html/select";
     }
+    @PostMapping("/select")
+    public String getAlumnoByCodigo(@RequestParam("codigo") int codigo, Model model) {
+        List<AlumnosModel> resultados = (List<AlumnosModel>) alumnosService.getAlumnosByCodigo(codigo);
+
+        AlumnosModel alumnoBusqueda;
+
+        if (resultados != null && !resultados.isEmpty()) {
+            alumnoBusqueda = resultados.get(0);
+
+        } else {
+            alumnoBusqueda = new AlumnosModel();
+        }
+
+        model.addAttribute("alumno", alumnoBusqueda);
+
+        return "public_html/select";
+    }
+
     @GetMapping("/update")
-    public String mostrarUpdate(){
+    private String mostrarUpdate(Model model){
+        model.addAttribute("alumno", new AlumnosModel());
         return "public_html/update";
     }
+    @PostMapping("/update/buscar")
+    public String buscarParaUpdate(@RequestParam("codigo") int codigo, Model model) {
+        List<AlumnosModel> resultados = (List<AlumnosModel>) alumnosService.getAlumnosByCodigo(codigo);
+        AlumnosModel alumnoBusqueda;
+
+        if (resultados != null && !resultados.isEmpty()) {
+            alumnoBusqueda = resultados.get(0);
+        } else {
+            alumnoBusqueda = new AlumnosModel();
+        }
+
+        model.addAttribute("alumno", alumnoBusqueda);
+        return "public_html/update";
+    }
+    @PostMapping("/update/guardar")
+    public String guardarUpdate(@ModelAttribute("alumno") AlumnosModel alumno) {
+        alumnosService.updateAlumno(alumno);
+        return "redirect:/update";
+    }
+
     @GetMapping("/delete")
-    public String mostrarDelete(){
+    public String mostrarDelete(Model model){
+        model.addAttribute("alumno", new AlumnosModel());
         return "public_html/delete";
+    }
+    @PostMapping("/delete")
+    public String deleteAlumno(@RequestParam("codigo") int codigo, Model model) {
+        alumnosService.deleteAlumnoByCodigo(codigo);
+        return "redirect:/delete";
     }
 }

@@ -41,7 +41,7 @@ public class AlumnosService implements IAlumnosService {
     }
 
     @Override
-    public void deleteAlumnoById(int id) {
-        alumnosRepository.deleteById(id);
+    public void deleteAlumnoByCodigo(int codigo) {
+        alumnosRepository.deleteById(codigo);
     }
 }

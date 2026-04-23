@@ -15,5 +15,5 @@ public interface IAlumnosService {
 
     AlumnosModel updateAlumno(AlumnosModel alumno);
 
-    void deleteAlumnoById(int id);
+    void deleteAlumnoByCodigo(int codigo);
 }

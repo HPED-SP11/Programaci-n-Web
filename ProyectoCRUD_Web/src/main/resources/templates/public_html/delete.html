@@ -5,11 +5,11 @@
   <title>DELETE - CRUD Básico en SpringBoot | Programación Web 2026A</title>
   <link rel="stylesheet" th:href="@{/CSS/insert_styles.css}"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body>
   <header>
-    <div class="header-left"><p>&lt; HPED &gt;</p></div>
+    <div class="header-left"><p><i class="bi bi-chevron-left"></i><span>HPED</span><i class="bi bi-chevron-right"></i></p></div>
     <div class="header-center"><h1>CRUD Básico en SpringBoot</h1></div>
     <div class="header-right"><p>Programación Web 2026A</p></div>
   </header>
@@ -23,7 +23,7 @@
       </p>
     </div>
     <div class="form-content">
-      <form th:action="@{/eliminarAlumno}" method="POST" class="crud-form">
+      <form th:action="@{/delete}" method="POST" class="crud-form">
         <div class="right-btn">
           <button type="button" class="btn-cerrar"><i class="bi bi-box-arrow-left"></i></button>
         </div>
@@ -31,14 +31,12 @@
           <h2>Eliminar alumnos</h2>
           <hr class="separator">
         </div>
-        <div class="form-content">
-          <div class="usr-bot">
-            <label for="coUdeg">Codigo de estudiante:</label>
-            <input type="number" id="coUdeg" name="codigo" placeholder="123456789" required>
-          </div>
-          <div class="usr-btn">
-            <input type="submit" value="Eliminar" id="btnBorrar">
-          </div>
+        <div class="usr-bot">
+          <label for="coUdeg">Codigo de estudiante:</label>
+          <input type="number" id="coUdeg" name="codigo" placeholder="123456789" required>
+        </div>
+        <div class="usr-btn">
+          <input type="submit" value="Eliminar" id="btnBorrar">
         </div>
       </form>
     </div>

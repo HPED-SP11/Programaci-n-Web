@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    //SCRIPT PARA BUSCAR A LOS ALUMNOS
+    //SCRIPT PARA BUSCAR A LOS ALUMNOS"
     const btnBuscar = document.getElementById("btnBuscar");
     if (btnBuscar) {
         btnBuscar.addEventListener("click", (e) => {
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         clearInterval(timerInterval);
                     }
                 }).then(result => {
-                    document.querySelector('.crud-form').submit();
+                    document.getElementById('formBuscador').submit();
                 });
             } else {
                 Swal.fire({
@@ -104,6 +104,50 @@ document.addEventListener("DOMContentLoaded", () => {
                     confirmButtonColor: "#f54927",
                     draggable: true
                 })
+            }
+        });
+    }
+
+    //SCRIPT PARA MODIFICAR A LOS ALUMNOS
+    const btnModificar = document.getElementById("btnModificar");
+    if (btnModificar) {
+        btnModificar.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            if (name.value.trim() !== "" && dom.value.trim() !== "" && coUdeg.value.trim() !== "") {
+                if (coUdeg.value.length < 9 || coUdeg.value.length > 9) {
+                    Swal.fire({
+                        title: "Emmm...",
+                        html: "El código de estudiante debe ser de únicamente 9 dígitos.<br>Revisalo e intentalo nuevamente.",
+                        icon: "warning",
+                        color: "#fff",
+                        background: "#1a1a1a",
+                        confirmButtonColor: "#f54927",
+                        draggable: true
+                    })
+                } else {
+                    Swal.fire({
+                        title: "¡Hecho!",
+                        html: "Los datos del alumno se actualizaron correctamente.<br>Al cerrar esta ventana volverás al insert",
+                        icon: "success",
+                        color: "#fff",
+                        background: "#1a1a1a",
+                        confirmButtonColor: "#f54927",
+                        draggable: true
+                    }).then(result => {
+                        document.getElementById('formEditar').submit();
+                    });
+                }
+            } else {
+                Swal.fire({
+                    title: "Ups...",
+                    html: "Tienes que llenar el campo de nombre y domicilio.<br>Revisalas e intenta nuevamente.",
+                    icon: "warning",
+                    color: "#fff",
+                    background: "#1a1a1a",
+                    confirmButtonColor: "#f54927",
+                    draggable: true
+                });
             }
         });
     }
