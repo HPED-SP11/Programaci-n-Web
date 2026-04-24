@@ -152,4 +152,60 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // SCRIPT PARA EL MODAL DE EDICIÓN EN LA LISTA ---
+    const modal = document.getElementById("modal-nombre");
+
+    document.addEventListener("click", (e) => {
+        const btnEditar = e.target.closest(".boton-editar");
+        if (btnEditar) {
+            const fila = btnEditar.closest("tr");
+
+            const codigo = fila.querySelector(".col-codigo").textContent.trim();
+            const nombre = fila.querySelectorAll("td")[1].textContent.trim();
+            const domicilio = fila.querySelectorAll("td")[2].textContent.trim();
+
+            document.getElementById("codigo").value = codigo;
+            document.getElementById("nombre").value = nombre;
+            document.getElementById("domicilio").value = domicilio;
+
+            modal.classList.add("active");
+        }
+
+        if (e.target.closest(".close-btn") || e.target === modal) {
+            modal.classList.remove("active");
+        }
+    });
+
+    const btnGuardarModal = document.getElementById("btn-save-nombre");
+    if (btnGuardarModal) {
+        btnGuardarModal.addEventListener("click", (e) => {
+            e.preventDefault();
+            const inputNombre = document.getElementById("nombre");
+            const inputDom = document.getElementById("domicilio");
+
+            if (inputNombre.value.trim() !== "" && inputDom.value.trim() !== "") {
+                Swal.fire({
+                    title: "¡Confirmado!",
+                    text: "Se actualizarán los datos del alumno.",
+                    icon: "success",
+                    color: "#fff",
+                    background: "#1a1a1a",
+                    confirmButtonColor: "#f54927",
+                    draggable: true
+                }).then((result) => {
+                    document.getElementById("form-nombre").submit();
+                });
+            } else {
+                Swal.fire({
+                    title: "Campos vacíos",
+                    text: "Por favor, completa el nombre y el domicilio.",
+                    icon: "warning",
+                    color: "#fff",
+                    background: "#1a1a1a",
+                    confirmButtonColor: "#f54927"
+                });
+            }
+        });
+    }
+
 });

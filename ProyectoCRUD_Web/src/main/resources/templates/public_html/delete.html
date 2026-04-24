@@ -23,7 +23,8 @@
       </p>
     </div>
     <div class="form-content">
-      <form th:action="@{/delete}" method="POST" class="crud-form">
+      <form th:action="@{/delete/eliminar}" method="POST" class="crud-form">
+        <input type="hidden" name="from" value="/delete" />
         <div class="right-btn">
           <button type="button" class="btn-cerrar"><i class="bi bi-box-arrow-left"></i></button>
         </div>
@@ -50,6 +51,7 @@
           <li><a th:href="@{/select}" class="btn-menu">SELECT</a></li>
           <li><a th:href="@{/update}" class="btn-menu">UPDATE</a></li>
           <li><a th:href="@{/delete}" class="btn-menu active">DELETE</a></li>
+          <li><a th:href="@{/lista}" class="btn-menu">VISTA DE LISTA</a></li>
         </ul>
         <hr class="separator">
         <p class="info-bot">Sientete libre de hacer lo que necesites.</p>

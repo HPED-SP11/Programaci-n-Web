@@ -1,0 +1,299 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #edede1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.btn-nvoAlumno { margin-right: 10px; }
+.btn-nvoAlumno i { margin-left: 6px }
+.modal-lista {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 150rem;
+  margin-top: 2rem;
+  padding: 0 20px;
+  margin-bottom: 50px;
+}
+.title h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+}
+.separator {
+  border: 0;
+  height: 2px;
+  background: #f54927;
+  margin: 30px 0;
+}
+table.tabla-alumnos {
+  width: 100%;
+  max-width: 900px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #2d2d2d;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  font-family: 'DM Sans', sans-serif;
+}
+table.tabla-alumnos thead tr {
+  background: linear-gradient(135deg, #F54927 0%, #d43d1e 100%);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+table.tabla-alumnos th {
+  padding: 18px 25px;
+  font-weight: 700;
+  border: none;
+}
+table.tabla-alumnos td {
+  padding: 15px 25px;
+  color: #e0e0e0;
+  vertical-align: middle;
+  border-bottom: 1px solid #3d3d3d;
+  transition: all 0.2s ease;
+}
+.col-codigo {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  color: #F54927 !important;
+}
+table.tabla-alumnos tbody tr:hover td {
+  background-color: #383838;
+  color: #fff;
+  transform: scale(1.002);
+}
+.boton-editar, .boton-borrar {
+  background: rgba(245, 73, 39, 0.1);
+  color: #f54927;
+  border: 1px solid transparent;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.boton-editar:hover, .boton-borrar:hover {
+  background: #f54927;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(245, 73, 39, 0.4);
+  transform: translateY(-2px);
+}
+table.tabla-alumnos tbody tr:last-child td {
+  border-bottom: none;
+}
+/*.tabla-alumnos {
+  max-width: 60rem;
+}
+table.tabla-alumnos {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #2d2d2d;
+  border: none;
+}
+table.tabla-alumnos thead tr {
+  background-color: #F54927;
+  color: #fff;
+  text-align: left;
+}
+table.tabla-alumnos th,
+table.tabla-alumnos td {
+  padding: 15px 20px;
+  border: none;
+  border-bottom: 1px solid #3d3d3d;
+  color: #fff;
+}
+table.tabla-alumnos tbody tr {
+  border-bottom: 1px solid #3d3d3d;
+}
+table.tabla-alumnos tbody tr:hover {
+  background-color: #3d3d3d;
+}
+table.tabla-alumnos tbody tr:last-of-type {
+  border-bottom: none;
+}
+.boton-editar {
+  background: transparent;
+  color: #f54927;
+  font-size: 1.3rem;
+}*/
+/*FOOTER*/
+footer {
+  margin-top: auto;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-footer);
+  text-align: center;
+  width: 100%;
+} footer ul {
+  list-style: none;
+  }
+footer ul li a {
+  color: var(--color-footer);
+  font-size: 1.2rem;
+  margin: 0 8px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+footer ul li a:visited {
+  color: var(--color-footer);
+}
+
+footer ul li a:hover {
+  color: var(--color-hped);
+  transform: translateY(-3px);
+}
+
+/* ESTILOS PARA LOS MODALES */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Fondo oscuro pero que deja ver la tabla atrás sutilmente */
+  background: rgba(10, 10, 10, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  /* El desenfoque de fondo es clave para este look premium */
+  backdrop-filter: blur(6px);
+}
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  /* CAMBIO CLAVE: Un gris oscuro sólido pero no negro total */
+  background-color: #212121;
+  width: 90%;
+  max-width: 420px; /* Un poco más ancho para legibilidad */
+  padding: 35px; /* Más espacio interno */
+
+  /* Redondeado suave como en la inspo */
+  border-radius: 16px;
+
+  /* Sombra profunda y suave para dar la sensación de "flotar" */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+
+  border: none; /* Sin borde lateral naranja */
+  position: relative;
+  font-family: 'DM Sans', sans-serif; /* Usamos tu fuente principal */
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border: none; /* Sin línea divisoria */
+  padding: 0;
+}
+
+.modal-header h3 {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700; /* Bold pero no extra bold */
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.close-btn {
+  color: #757575; /* Gris más sutil */
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: all 0.2s;
+  position: absolute; /* Para ubicarlo como en la inspo */
+  right: 20px;
+  top: 20px;
+}
+
+.close-btn:hover {
+  color: #F54927;
+  transform: rotate(90deg);
+}
+
+#form-nombre, .crud-form-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Más espacio entre campos */
+}
+
+.modal-content label {
+  font-family: 'DM Sans', sans-serif; /* DM Sans para todo */
+  color: #a0a0a0; /* Gris claro sutil */
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: -12px; /* Pegado al input */
+  text-transform: none; /* Sin mayúsculas automáticas */
+  letter-spacing: normal;
+}
+
+.input-name, .modal-input {
+  background-color: #1a1a1a; /* Fondo oscuro sólido del input */
+  border: 1px solid #333; /* Borde sutil */
+  border-radius: 10px; /* Redondeado suave */
+  padding: 14px 18px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+}
+.input-name:focus, .input-domicilio:focus {
+  border-color: #F54927; /* Mantenemos tu naranja de acento */
+  box-shadow: 0 0 0 3px rgba(245, 73, 39, 0.15); /* Brillo sutil */
+}
+
+.input-name[readonly] {
+  background-color: #2a2a2a; /* Ligeramente más claro para indicar bloqueo */
+  color: #757575;
+  cursor: not-allowed;
+  border-color: #3d3d3d;
+  opacity: 0.8;
+}
+
+.btn_Guardar {
+  background: #F54927; /* Tu naranja sólido */
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: none; /* Sin mayúsculas automáticas */
+  cursor: pointer;
+  margin-top: 15px;
+  box-shadow: 0 4px 15px rgba(245, 73, 39, 0.3);
+  transition: all 0.3s;
+}
+
+.btn_Guardar:hover {
+  background-color: #e04322; /* Un naranja un pelo más oscuro al pasar el mouse */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 73, 39, 0.5);
+}

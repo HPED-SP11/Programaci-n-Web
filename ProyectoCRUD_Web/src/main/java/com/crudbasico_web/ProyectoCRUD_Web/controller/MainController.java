@@ -69,23 +69,27 @@ public class MainController {
         return "public_html/update";
     }
     @PostMapping("/update/buscar")
-    public String buscarParaUpdate(@RequestParam("codigo") int codigo, Model model) {
+    public String buscarParaUpdate(@RequestParam("codigo") int codigo, Model model,
+                                   @RequestParam(value = "from", defaultValue = "public_html/update") String from) {
         List<AlumnosModel> resultados = (List<AlumnosModel>) alumnosService.getAlumnosByCodigo(codigo);
-        AlumnosModel alumnoBusqueda;
-
-        if (resultados != null && !resultados.isEmpty()) {
-            alumnoBusqueda = resultados.get(0);
-        } else {
-            alumnoBusqueda = new AlumnosModel();
-        }
+        AlumnosModel alumnoBusqueda = (resultados != null && !resultados.isEmpty())
+                ? resultados.get(0)
+                : new AlumnosModel();
 
         model.addAttribute("alumno", alumnoBusqueda);
-        return "public_html/update";
+
+        if (from.contains("vistaLista")) {
+            model.addAttribute("showModal", true);
+            model.addAttribute("alumnos", alumnosService.getAlumnos());
+        }
+
+        return from;
     }
     @PostMapping("/update/guardar")
-    public String guardarUpdate(@ModelAttribute("alumno") AlumnosModel alumno) {
+    public String guardarUpdate(@ModelAttribute("alumno") AlumnosModel alumno,
+                                @RequestParam(value = "from", defaultValue = "/lista") String from) {
         alumnosService.updateAlumno(alumno);
-        return "redirect:/update";
+        return "redirect:"+from;
     }
 
     @GetMapping("/delete")
@@ -93,9 +97,20 @@ public class MainController {
         model.addAttribute("alumno", new AlumnosModel());
         return "public_html/delete";
     }
-    @PostMapping("/delete")
-    public String deleteAlumno(@RequestParam("codigo") int codigo, Model model) {
+    @PostMapping("/delete/eliminar")
+    public String deleteAlumno(@RequestParam("codigo") int codigo, /*Model model*/
+                               @RequestParam(value = "from", defaultValue = "/lista") String from) {
         alumnosService.deleteAlumnoByCodigo(codigo);
-        return "redirect:/delete";
+        return "redirect:"+from;
     }
+
+    @GetMapping("/lista")
+    public String mostrarLista(Model model) {
+        model.addAttribute("alumnos", alumnosService.getAlumnos());
+        model.addAttribute("alumno", new AlumnosModel());
+        return "public_html/vistaLista";
+    }
+    //@PostMapping("/lista/alumnos")
+    //publicString
+
 }
