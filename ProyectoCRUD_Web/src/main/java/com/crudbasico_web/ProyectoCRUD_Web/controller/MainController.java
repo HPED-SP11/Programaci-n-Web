@@ -31,10 +31,11 @@ public class MainController {
         return "public_html/insert";
         //return "public_html/insert";
     }
-    @PostMapping("/insert")
-    public String saveAlumno(@ModelAttribute("alumno") AlumnosModel alumno) {
+    @PostMapping("/insert/nuevoAlumno")
+    public String saveAlumno(@ModelAttribute("alumno") AlumnosModel alumno,
+                             @RequestParam(value = "from", defaultValue = "/lista") String from) {
         alumnosService.saveAlumno(alumno);
-        return "redirect:/insert";
+        return "redirect:"+from;
     }
 
     @GetMapping("/select")

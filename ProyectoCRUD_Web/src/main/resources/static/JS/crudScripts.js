@@ -152,12 +152,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // SCRIPT PARA EL MODAL DE EDICIÓN EN LA LISTA ---
+    // SCRIPT PARA EL MODAL DE EDICIÓN EN LA LISTA
     const modal = document.getElementById("modal-nombre");
 
     document.addEventListener("click", (e) => {
         const btnEditar = e.target.closest(".boton-editar");
         if (btnEditar) {
+            e.preventDefault();
             const fila = btnEditar.closest("tr");
 
             const codigo = fila.querySelector(".col-codigo").textContent.trim();
@@ -184,6 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const inputDom = document.getElementById("domicilio");
 
             if (inputNombre.value.trim() !== "" && inputDom.value.trim() !== "") {
+                modal.classList.remove("active");
                 Swal.fire({
                     title: "¡Confirmado!",
                     text: "Se actualizarán los datos del alumno.",
@@ -199,6 +201,68 @@ document.addEventListener("DOMContentLoaded", () => {
                 Swal.fire({
                     title: "Campos vacíos",
                     text: "Por favor, completa el nombre y el domicilio.",
+                    icon: "warning",
+                    color: "#fff",
+                    background: "#1a1a1a",
+                    confirmButtonColor: "#f54927"
+                });
+            }
+        });
+    }
+
+    //SCRIPT PARA EL MODAL DE NUEVO ALUMNO
+    const modalAlumno = document.getElementById("modal-nvo");
+
+    document.addEventListener("click", (e) => {
+        const btnNvoAlumno = e.target.closest(".btn-nvoAlumno");
+        if (btnNvoAlumno) {
+            document.getElementById("form-nvo").reset();
+            modalAlumno.classList.add("active");
+        }
+
+        if (e.target.closest("#modal-nvo .close-btn") || e.target === modalAlumno) {
+            modalAlumno.classList.remove("active");
+        }
+    });
+
+    const btnGuardarAlumno = document.getElementById("btn-save-alumno");
+    if (btnGuardarAlumno) {
+        btnGuardarAlumno.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const inputCod = document.getElementById("nvo-codigo");
+            const inputNombre = document.getElementById("nvo-nombre");
+            const inputDom = document.getElementById("nvo-domicilio");
+
+            if (inputNombre.value.trim() !== "" && inputDom.value.trim() !== "" && inputCod.value.trim() !== "") {
+                if (inputCod.value.length !== 9) {
+                    Swal.fire({
+                        title: "Código inválido",
+                        text: "El código debe tener exactamente 9 dígitos.",
+                        icon: "warning",
+                        color: "#fff",
+                        background: "#1a1a1a",
+                        confirmButtonColor: "#f54927"
+                    });
+                } else {
+                    modalAlumno.classList.remove("active");
+                    Swal.fire({
+                        title: "¡Confirmado!",
+                        text: "Se añadirá el alumno a la base de datos.",
+                        icon: "success",
+                        color: "#fff",
+                        background: "#1a1a1a",
+                        confirmButtonColor: "#f54927"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            document.getElementById("form-nvo").submit();
+                        }
+                    });
+                }
+            } else {
+                Swal.fire({
+                    title: "Campos incompletos",
+                    text: "Por favor, llena todos los campos del registro.",
                     icon: "warning",
                     color: "#fff",
                     background: "#1a1a1a",

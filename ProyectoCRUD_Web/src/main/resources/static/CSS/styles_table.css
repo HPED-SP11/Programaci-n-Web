@@ -9,8 +9,12 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+img.logotipo {
+  max-width: 10rem;
+}
 .btn-nvoAlumno { margin-right: 10px; }
 .btn-nvoAlumno i { margin-left: 6px }
+.navbar-text { margin-right: 10px; }
 .modal-lista {
   display: flex;
   flex-direction: column;
@@ -131,72 +135,41 @@ table.tabla-alumnos tbody tr:last-of-type {
   color: #f54927;
   font-size: 1.3rem;
 }*/
-/*FOOTER*/
-footer {
-  margin-top: auto;
-  padding: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-footer);
-  text-align: center;
-  width: 100%;
-} footer ul {
-  list-style: none;
-  }
-footer ul li a {
-  color: var(--color-footer);
-  font-size: 1.2rem;
-  margin: 0 8px;
-  transition: all 0.25s ease;
-  text-decoration: none;
-}
-
-footer ul li a:visited {
-  color: var(--color-footer);
-}
-
-footer ul li a:hover {
-  color: var(--color-hped);
-  transform: translateY(-3px);
-}
 
 /* ESTILOS PARA LOS MODALES */
-.modal-overlay {
+.modal-overlay,
+.hped-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* Fondo oscuro pero que deja ver la tabla atrás sutilmente */
   background: rgba(10, 10, 10, 0.85);
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 2000;
   transition: all 0.3s ease;
-  /* El desenfoque de fondo es clave para este look premium */
   backdrop-filter: blur(6px);
 }
-.modal-overlay.active {
+
+/* Selector para mostrar el modal */
+.modal-overlay.active,
+.hped-overlay.active {
   display: flex;
 }
 
-.modal-content {
-  /* CAMBIO CLAVE: Un gris oscuro sólido pero no negro total */
+.modal-content,
+.hped-modal {
   background-color: #212121;
   width: 90%;
-  max-width: 420px; /* Un poco más ancho para legibilidad */
-  padding: 35px; /* Más espacio interno */
-
-  /* Redondeado suave como en la inspo */
+  max-width: 420px;
+  padding: 35px;
   border-radius: 16px;
-
-  /* Sombra profunda y suave para dar la sensación de "flotar" */
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-
-  border: none; /* Sin borde lateral naranja */
+  border: none;
   position: relative;
-  font-family: 'DM Sans', sans-serif; /* Usamos tu fuente principal */
+  font-family: 'DM Sans', sans-serif;
   animation: modalFadeIn 0.3s ease-out;
 }
 
@@ -205,31 +178,34 @@ footer ul li a:hover {
   to { transform: translateY(0); opacity: 1; }
 }
 
-.modal-header {
+.modal-header,
+.hped-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
-  border: none; /* Sin línea divisoria */
+  border: none;
   padding: 0;
 }
 
-.modal-header h3 {
+.modal-header h3,
+.hped-header h3 {
   color: #fff;
   font-size: 1.6rem;
-  font-weight: 700; /* Bold pero no extra bold */
+  font-weight: 700;
   margin: 0;
   letter-spacing: -0.5px;
 }
 
 .close-btn {
-  color: #757575; /* Gris más sutil */
+  color: #757575;
   cursor: pointer;
   font-size: 1.4rem;
   transition: all 0.2s;
-  position: absolute; /* Para ubicarlo como en la inspo */
+  position: absolute;
   right: 20px;
   top: 20px;
+  z-index: 10;
 }
 
 .close-btn:hover {
@@ -237,26 +213,33 @@ footer ul li a:hover {
   transform: rotate(90deg);
 }
 
-#form-nombre, .crud-form-modal {
+/* Formularios */
+#form-nombre,
+#form-nvo,
+.crud-form-modal {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Más espacio entre campos */
+  gap: 20px;
 }
 
-.modal-content label {
-  font-family: 'DM Sans', sans-serif; /* DM Sans para todo */
-  color: #a0a0a0; /* Gris claro sutil */
+/* Estilo de Etiquetas */
+.modal-content label,
+.hped-modal label {
+  font-family: 'DM Sans', sans-serif;
+  color: #a0a0a0;
   font-weight: 500;
   font-size: 0.9rem;
-  margin-bottom: -12px; /* Pegado al input */
-  text-transform: none; /* Sin mayúsculas automáticas */
-  letter-spacing: normal;
+  margin-bottom: -12px;
+  text-align: left;
 }
 
-.input-name, .modal-input {
-  background-color: #1a1a1a; /* Fondo oscuro sólido del input */
-  border: 1px solid #333; /* Borde sutil */
-  border-radius: 10px; /* Redondeado suave */
+/* Estilo de Inputs */
+.input-name,
+.modal-input,
+.hped-modal input {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
   padding: 14px 18px;
   color: #fff;
   font-family: 'DM Sans', sans-serif;
@@ -264,28 +247,32 @@ footer ul li a:hover {
   outline: none;
   transition: all 0.2s;
 }
-.input-name:focus, .input-domicilio:focus {
-  border-color: #F54927; /* Mantenemos tu naranja de acento */
-  box-shadow: 0 0 0 3px rgba(245, 73, 39, 0.15); /* Brillo sutil */
+
+/* Focus en Inputs */
+.input-name:focus,
+.hped-modal input:focus {
+  border-color: #F54927;
+  box-shadow: 0 0 0 3px rgba(245, 73, 39, 0.15);
 }
 
+/* Inputs de solo lectura (Código) */
 .input-name[readonly] {
-  background-color: #2a2a2a; /* Ligeramente más claro para indicar bloqueo */
+  background-color: #2a2a2a;
   color: #757575;
   cursor: not-allowed;
   border-color: #3d3d3d;
   opacity: 0.8;
 }
 
+/* Botón Guardar */
 .btn_Guardar {
-  background: #F54927; /* Tu naranja sólido */
+  background: #F54927;
   color: white;
   border: none;
   padding: 16px;
   border-radius: 12px;
   font-weight: 700;
   font-size: 1.1rem;
-  text-transform: none; /* Sin mayúsculas automáticas */
   cursor: pointer;
   margin-top: 15px;
   box-shadow: 0 4px 15px rgba(245, 73, 39, 0.3);
@@ -293,7 +280,37 @@ footer ul li a:hover {
 }
 
 .btn_Guardar:hover {
-  background-color: #e04322; /* Un naranja un pelo más oscuro al pasar el mouse */
+  background-color: #e04322;
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(245, 73, 39, 0.5);
+}
+
+/*FOOTER*/
+footer {
+  margin-top: auto;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  text-align: center;
+  width: 100%;
+}
+footer ul {
+  list-style: none;
+}
+footer ul li a {
+  color: #000;
+  font-size: 1.2rem;
+  margin: 0 8px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+footer ul li a:visited {
+  color: #000;
+}
+
+footer ul li a:hover {
+  color: #f54927;
+  transform: translateY(-3px);
 }

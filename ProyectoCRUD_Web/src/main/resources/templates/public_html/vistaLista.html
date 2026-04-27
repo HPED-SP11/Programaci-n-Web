@@ -9,13 +9,13 @@
 </head>
 <body>
  <header>
-   <nav class="navbar  navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+   <nav class="navbar  navbar-expand-lg border-bottom border-body" data-bs-theme="dark" style="background-color: #000;">
      <div class="container-fluid">
        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
        </button>
        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-         <a class="navbar-brand" href="#"><i class="bi bi-chevron-left"></i><span>HPED</span><i class="bi bi-chevron-right"></i></a>
+         <a class="navbar-brand" href="#"><img th:src="@{/Images/HPED_Logo.svg}" alt="&lt; HPED &gt;" class="logotipo"></img></a>
          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
            <li class="nav-item">
              <a class="nav-link active" aria-current="page" th:href="@{/lista}">LISTA DE ALUMNOS</a>
@@ -34,6 +34,7 @@
            </li>
          </ul>
          <div class="d-flex">
+           <span class="navbar-text">Programación Web 2026A</span>
            <button class="btn btn-outline-success btn-nvoAlumno" type="submit">Añadir Alumno<i class="bi bi-plus-circle-fill"></i></button>
            <button class="btn btn-outline-success btn-cerrar" type="button"><i class="bi bi-box-arrow-left"></i></button>
          </div>
@@ -62,14 +63,9 @@
             <td th:text="${al.nombre}">Nombre del Alumno</td>
             <td th:text="${al.domicilio}">Domicilio del Alumno</td>
             <td class="text-center">
-              <form th:action="@{/update/buscar}" method="post" style="display: inline;">
-                <input type="hidden" name="codigo" th:value="${al.codigo}" />
-                <input type="hidden" name="from" value="public_html/vistaLista" />
-
-                <button type="submit" class="boton-editar" title="Editar">
-                  <i class="bi bi-pencil-square"></i>
-                </button>
-              </form>
+              <button type="submit" class="boton-editar" title="Editar">
+                <i class="bi bi-pencil-square"></i>
+              </button>
               <form th:action="@{/delete/eliminar}" method="post" style="display: inline;">
                 <input type="hidden" name="codigo" th:value="${al.codigo}" />
                 <input type="hidden" name="from" value="/lista" />
@@ -104,6 +100,32 @@
 
           <button type="submit" id="btn-save-nombre" class="btn_Guardar">
             Guardar Cambios
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="hped-overlay" id="modal-nvo">
+      <div class="hped-modal">
+        <div class="hped-header">
+          <h3>Registrar Estudiante</h3>
+          <span class="close-btn"><i class="bi bi-x-lg"></i></span>
+        </div>
+        <form id="form-nvo" th:action="@{/insert/nuevoAlumno}" th:object="${alumno}" method="POST">
+          <input type="hidden" name="from" value="/lista" />
+
+          <label for="nvo-codigo">Código de estudiante:</label>
+          <input type="number" id="nvo-codigo" name="codigo" placeholder="123456789" class="input-name" required/>
+
+          <label for="nvo-nombre">Nombre completo:</label>
+          <input type="text" id="nvo-nombre" name="nombre" placeholder="Ej. Edgar Hernández" class="input-name" required/>
+
+          <label for="nvo-domicilio">Domicilio:</label>
+          <input type="text" id="nvo-domicilio" name="domicilio" placeholder="Ej. Tonalá, Jalisco" class="input-name" required/>
+
+          <p id="error-nvoAlumno" class="error-msg"></p>
+
+          <button type="submit" id="btn-save-alumno" class="btn_Guardar">
+            Guardar nuevo alumno
           </button>
         </form>
       </div>
